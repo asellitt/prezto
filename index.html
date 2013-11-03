@@ -34,7 +34,6 @@
             a:hover   { color: #2a6496; }
             a:active  { color: #428bca; }
         </style>
-
     <head>
     <body>
 
@@ -42,5 +41,13 @@
     
         <div>&copy; <a href="https://twitter.com/asellitt">@asellitt</a></div>
 
+        <script>
+            var content = window.location.search.match(/c=([^&]*)/)
+
+            if(content !== null && content[1] !== undefined) {
+                var area = document.getElementsByTagName('textarea')[0]
+                area.innerHTML = content[1]
+            }
+        </script>
     </body>
 </html>
