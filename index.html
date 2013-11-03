@@ -42,11 +42,11 @@
         <div>&copy; <a href="https://twitter.com/asellitt">@asellitt</a></div>
 
         <script>
-            var content = window.location.search.match(/c=([^&]*)/)
+            var content = window.location.search.match(/c=([^&]*)/);
 
             if(content !== null && content[1] !== undefined) {
-                var area = document.getElementsByTagName('textarea')[0]
-                area.innerHTML = content[1]
+                var area = document.getElementsByTagName('textarea')[0];
+                area.innerHTML = content[1].replace(/\+/g, ' ').replace(/%20/g, ' ');
             }
         </script>
     </body>
