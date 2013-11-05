@@ -29,6 +29,11 @@
                 bottom: 0px;
             }
 
+            img {
+                display: 'none';
+                margin: 'auto';
+            }
+
             a:link    { color: #428bca; }
             a:visited { color: #428bca; }
             a:hover   { color: #2a6496; }
@@ -38,6 +43,7 @@
     <body>
 
         <textarea placeholder="Type here..."></textarea>
+        <img/>
     
         <div>&copy; <a href="https://twitter.com/asellitt">@asellitt</a></div>
 
@@ -60,6 +66,21 @@
 
             // set title
             document.title = get.t || 'Prezto';
+
+            //set image
+            if(get.g) {
+                area.style.display = 'none';
+                var img = document.getElementsByTagName('img')[0];
+                img.src= get.g;
+                img.style.display = 'block';
+
+                if(img.width > img.height) { 
+                    img.style.width = '100%' 
+                } 
+                else { 
+                    img.style.height = '100%' 
+                }
+            }
         </script>
     </body>
 </html>
