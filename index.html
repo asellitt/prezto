@@ -46,8 +46,8 @@
             var query_tokens = window.location.search.substring(1).replace(/\+/g, ' ').replace(/%20/g, ' ').split('&');
 
             var json_string = '{'; 
-            for(var i in tokens) { 
-                var key_value = tokens[i].split('=');
+            for(var i in query_tokens) { 
+                var key_value = query_tokens[i].split('=');
                 json_string += '"' + key_value[0] + '":"' + key_value[1] + '",';
             }
             json_string = json_string.substring(0, json_string.length - 1) + '}';
