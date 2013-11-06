@@ -20,18 +20,16 @@
             textarea {
                 font-size: 200px;
                 padding: 20px;
+                background-size: contain;
+                background-position: center center;
+                background-repeat: no-repeat;
             }
-            
+
            div {
                 width: 100%;
                 text-align: center;
                 position: absolute;
                 bottom: 0px;
-            }
-
-            img {
-                display: 'none';
-                margin: 'auto';
             }
 
             a:link    { color: #428bca; }
@@ -44,15 +42,15 @@
 
         <textarea placeholder="Type here..."></textarea>
         <img/>
-    
+
         <div>&copy; <a href="https://twitter.com/asellitt">@asellitt</a></div>
 
         <script>
             // jsonify query string
             var query_tokens = window.location.search.substring(1).replace(/\+/g, ' ').replace(/%20/g, ' ').split('&');
 
-            var json_string = '{'; 
-            for(var i in query_tokens) { 
+            var json_string = '{';
+            for(var i in query_tokens) {
                 var key_value = query_tokens[i].split('=');
                 json_string += '"' + key_value[0] + '":"' + key_value[1] + '",';
             }
@@ -62,24 +60,15 @@
 
             // set content
             var area = document.getElementsByTagName('textarea')[0];
-            area.innerHTML = get.c;
+            area.innerHTML = get.c || null;
 
             // set title
             document.title = get.t || 'Prezto';
 
             //set image
             if(get.g) {
-                area.style.display = 'none';
-                var img = document.getElementsByTagName('img')[0];
-                img.src= get.g;
-                img.style.display = 'block';
-
-                if(img.width > img.height) { 
-                    img.style.width = '100%' 
-                } 
-                else { 
-                    img.style.height = '100%' 
-                }
+                area.style.backgroundImage = 'url("'+get.g+'")';
+                area.placeholder = '';
             }
         </script>
     </body>
