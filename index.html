@@ -47,7 +47,7 @@
 
         <script>
             // jsonify query string
-            var query_tokens = window.location.search.substring(1).replace(/\+/g, ' ').replace(/%20/g, ' ').split('&');
+            var query_tokens = unescape(window.location.search.substring(1)).replace(/\+/g, ' ').split('&');
 
             var json_string = '{';
             for(var i in query_tokens) {
